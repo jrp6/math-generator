@@ -7,14 +7,16 @@ def printExercise(a, b, c, d):
     print("\\frac{%d \\cdot (%d %+d)}{%d} =" % (a, b, c, d))
     print("\\end{equation}")
 
+def randNonZero(minimum, maximum):
+    x = randint(minimum, maximum)
+    return 1 if x == 0 else x
+
 def printRandomExercise():
     minimum = -20
     maximum = 20
-    array = []
-    for _ in range(4):
-        array.append(randint(minimum, maximum))
+    params = [randNonZero(minimum, maximum) for _ in range(4)]
 
-    printExercise(*array)
+    printExercise(*params)
 
 def printRandomExercises(amount):
     for _ in range(amount):
@@ -34,5 +36,5 @@ print("""
   Matemaattinen osio}
 \\maketitle
 """)
-printRandomExercises(50)
+printRandomExercises(47)
 print("\\end{document}")
