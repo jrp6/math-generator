@@ -1,20 +1,22 @@
 #!/usr/bin/env python3
 from random import randint
 
-# Prints the excercise c * (a + b) / d in LaTeX form
-def printExercise(a, b, c, d):
+# Prints the excercise c * (a + b) in LaTeX form
+def printExercise(a, b, c):
     print("\\begin{equation}")
-    print("\\frac{%d \\cdot (%d %+d)}{%d} =" % (a, b, c, d))
+    print("%d \\cdot (%d %+d) =" % (c, a, b))
     print("\\end{equation}")
 
-def randNonZero(minimum, maximum):
+def randNonZeroOrOne(minimum, maximum):
     x = randint(minimum, maximum)
-    return 1 if x == 0 else x
+    return 2 if x == 0 else 2*x if abs(x) == 1 else x
 
 def printRandomExercise():
     minimum = -20
     maximum = 20
-    params = [randNonZero(minimum, maximum) for _ in range(4)]
+    minimumC = -10
+    maximumC = 10
+    params = [randNonZeroOrOne(minimum, maximum) for _ in range(2)] + [randNonZeroOrOne(minimumC, maximumC)]
 
     printExercise(*params)
 
