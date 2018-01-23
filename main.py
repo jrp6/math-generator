@@ -48,13 +48,15 @@ docStart = """
 \\usepackage{ae,aecompl}
 \\usepackage{amsmath}
 \\usepackage[finnish]{babel}
-\\pagestyle{plain}
+\\usepackage[top=1cm, bottom=2cm, left=3cm, right=3cm]{geometry}
+\\pagestyle{empty}
 
 \\begin{document}
 
-\\title{Musiikin vaikutus kognitiiviseen suorituskykyyn:\\\\
-  Matemaattinen osio}
+\\title{Matemaattinen osio}
+\\date{}
 \\maketitle
+\\thispagestyle{empty}
 """
 docEnd = "\\end{document}"
-printRandomExercises(47, docStart, docEnd)
+printRandomExercises(70, docStart, docEnd)
